@@ -23,3 +23,9 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+//ユーザ詳細
+Route::group(['middleware' => ['auth']], function(){ //ログインしているユーザのみ閲覧可能
+    Route::resource('users', 'UsersController', ['only' => ['show']]); //ユーザ詳細
+});
+

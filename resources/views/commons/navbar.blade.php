@@ -10,9 +10,9 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                @if (Auth::check()) //ログイン中
+                @if (Auth::check()) {{--ログイン中--}}
                     {{--マイページ--}}
-                    <li class="nav-item"><a href="#" class="nav-link">マイページ</a></li>
+                    <li class="nav-item">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()], ['class' => 'nav-link'] ) !!}</li>
                     {{--ログアウト--}}
                     <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 @else
