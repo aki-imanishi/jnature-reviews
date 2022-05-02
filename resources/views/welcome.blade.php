@@ -1,11 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="center jumbotron">
-        <div class="text-center">
-            <h1>Welcome to the J-Nature Reviews</h1>
-            {{-- ユーザ登録ページへのリンク --}}
-            {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
-        </div>
-    </div>
+    
+        @if(Auth::check()) {{--ログイン中--}}
+            {{ Auth::user()->name }}
+        @else
+            <div class="center jumbotron">    
+                <div class="text-center">
+                    <h1>J-Nature Reviewsへようこそ！</h1>
+                    {{-- ユーザ登録ページへのリンク --}}
+                    {!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                    {{--ログインページへのリンク--}}
+                    {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                </div>
+            </div>
+        @endif
+    
 @endsection
