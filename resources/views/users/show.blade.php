@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>{{ Auth::user()->name }}さん、こんにちは！</h3>
-    <div class="col-sm-8">
+    <h3>{{ Auth::user()->name }}さんのマイページ</h3>
+    <div class="col-sm-10">
         <ul class="nav nav-tabs">
             {{--レビュー一覧タブ--}}
             <li class="nav-item"><a href="#" class="nav-link active">レビュー一覧</a></li>

@@ -26,6 +26,11 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //ユーザ詳細
 Route::group(['middleware' => ['auth']], function(){ //ログインしているユーザのみ閲覧可能
-    Route::resource('users', 'UsersController', ['only' => ['show']]); //ユーザ詳細
+    //ユーザ詳細を表示
+    Route::resource('users', 'UsersController', ['only' => ['show']]); 
+    
+    //観光地一覧の表示、観光地詳細ページ
+    Route::resource('places', 'PlacesController', ['only' => ['index', 'show']]);
+    
 });
 

@@ -18,11 +18,11 @@ class CreatePlacesTable extends Migration
             $table->string('name'); //観光地名
             $table->string('address'); //住所
             $table->string('access'); //アクセス
-            $table->('homepage'); //ホームページのURL
+            $table->string('homepage'); //ホームページのURL
             $table->string('content'); //詳細情報
-            $table->('image1');
-            $table->('image2');
-            $table->('image3');
+            $table->string('image1'); //画像1
+            $table->string('image2'); //画像2
+            $table->string('image3'); //画像3
             $table->timestamps();
         });
     }

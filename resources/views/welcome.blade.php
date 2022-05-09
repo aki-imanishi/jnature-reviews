@@ -12,6 +12,8 @@
                     {!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
                     {{--ログインページへのリンク--}}
                     {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                    {{--観光地詳細ページへのリンク--}}
+                    {{--{!! link_to_route('places.show', '観光地詳細ページ', [], ['class' => 'btn btn-lg btn-primary']) !!}--}}
                 </div>
             </div>
         @endif
