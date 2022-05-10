@@ -21,7 +21,7 @@
             
         </ul>
         {{-- ページネーションのリンク --}}
-        {{ $places->links() }}
+        {{-- $places->links() --}}
     @endif
     
 @endsection

@@ -28,7 +28,7 @@ class PlacesController extends Controller
     
     public function index(){ //観光地の一覧を表示
         // 観光地一覧をidの降順で取得
-        $places = Place::orderBy('id', 'desc')->paginate(10);
+        $places = Place::orderBy('id', 'desc')->get();
         
         // 観光地一覧ビューでそれを表示
         return view('places.index', [
@@ -44,3 +44,4 @@ class PlacesController extends Controller
     }
     
 }
+

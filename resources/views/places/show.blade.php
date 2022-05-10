@@ -15,7 +15,7 @@
         </div>
         
         <div>
-            <p>概要</p>
+            <p></p>
             <p>{{ $place->information }}</p>
         </div>
         
@@ -44,6 +44,7 @@
             </tbody>
         </table>
         
+        {!! link_to_route('places.index', '一覧に戻る', [], ['class' => 'btn btn-lg btn-primary']) !!}
     </section>
     
     <section>{{--レビュー一覧--}}
