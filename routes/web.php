@@ -24,7 +24,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//ユーザ詳細
+
 Route::group(['middleware' => ['auth']], function(){ //ログインしているユーザのみ閲覧可能
     //ユーザ詳細を表示
     Route::resource('users', 'UsersController', ['only' => ['show']]); 
@@ -32,5 +32,7 @@ Route::group(['middleware' => ['auth']], function(){ //ログインしている�
     //観光地一覧の表示、観光地詳細ページ
     Route::resource('places', 'PlacesController', ['only' => ['index', 'show']]);
     
+    //レビュー投稿の操作
+    Route::resource('reviews', 'ReviewsController', ['only' => ['create', 'store', 'destroy']]);
 });
 

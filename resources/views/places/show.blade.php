@@ -6,7 +6,7 @@
         
         <h3>観光地名</h3>
         
-        <a href="#" class="btn btn-primary">保存</a>
+        <a href="#" class="btn btn-warning">保存</a>
         
         <div class="row">
             <img class="col-sm-3" src="{{ asset($place->image1) }}">
@@ -44,10 +44,20 @@
             </tbody>
         </table>
         
-        {!! link_to_route('places.index', '一覧に戻る', [], ['class' => 'btn btn-lg btn-primary']) !!}
+        {!! link_to_route('places.index', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}
     </section>
     
-    <section>{{--レビュー一覧--}}
+    <section>{{--レビューの表示--}}
+        <div>
+            <h5>みんなのレビュー</h5>
+            {{--レビュー一覧--}}
+            @include('reviews.reviews')
+        </div>
+        <div class="col-sm-8">
+            <h5>レビューを投稿する</h5>
+            {{--レビュー投稿フォーム--}}
+            @include('reviews.form')
+        </div>
         
     </section>
     

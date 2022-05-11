@@ -13,7 +13,7 @@
                         </div>
                         <div>
                             {{-- 観光地の詳細ページへのリンク --}}
-                            <p>{!! link_to_route('places.show', 'もっと見る', ['place' => $place->id]) !!}</p>
+                            <p>{!! link_to_route('places.show', '詳細を見る', ['place' => $place->id]) !!}</p>
                         </div>
                     </div>
                 </li>
@@ -21,7 +21,7 @@
             
         </ul>
         {{-- ページネーションのリンク --}}
-        {{-- $places->links() --}}
+        {{ $places->links() }}
     @endif
     
 @endsection

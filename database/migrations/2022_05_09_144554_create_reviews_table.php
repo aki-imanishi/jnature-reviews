@@ -21,8 +21,12 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
             
             //外部キー制約
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('place_id')->references('id')->on('places');
+            //->onDelete('cascade')で、users, placesテーブルのデータが削除されると、それにひもづくreviewsテーブルのuser_id, place_idのレコードも削除される
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
+            
+            // user_idとplace_idの組み合わせの重複を禁止(テーブルの制約)➝いらんくない？
+            // $table->unique(['user_id', 'place_id']);
         });
     }
 
