@@ -5,8 +5,8 @@
     <div class="col-sm-10">
         @include('users.navtabs')
         
-        {{--レビュー一覧--}}
-        @include('reviews.reviews')
+        {{--行きたい観光地一覧--}}
+        @include('places.index')
         
     </div>
     

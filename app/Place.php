@@ -21,8 +21,22 @@ class Place extends Model
     // いつか実装    
     // }
     
-    //Userモデルとの関係（多対多）
+    //レビュー投稿におけるUserモデルとの関係（多対多）
     public function review_users() {
-        return $this->belongsToMany(User::class, 'reviews', 'place_id', 'user_id')->withTimestamps(); //place_idの観光地がuser_idのユーザにレビューを投稿される
+        return $this->belongsToMany(User::class, 'reviews', 'place_id', 'user_id')->withTimestamps();
+        //place_idの観光地がuser_idのユーザにレビューを投稿される
     }
+    
+    //保存機能におけるUserモデルとの関係（多対多）
+    public function save_users(){
+        return $this->belongsToMany(User::class, 'place_save', 'place_id', 'user_id')->withTimestamps();
+        //place_idの観光地がuser_idのユーザに保存される
+    }
+    
+    //モデルのカウント
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('save_users');
+    }
+
 }

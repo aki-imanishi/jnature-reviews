@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PlacesController@index')->name('toppage');
 
 //会員登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -30,9 +28,17 @@ Route::group(['middleware' => ['auth']], function(){ //ログインしている�
     Route::resource('users', 'UsersController', ['only' => ['show']]); 
     
     //観光地一覧の表示、観光地詳細ページ
-    Route::resource('places', 'PlacesController', ['only' => ['index', 'show']]);
+    Route::resource('places', 'PlacesController', ['only' => ['show']]);
     
     //レビュー投稿の操作
-    Route::resource('reviews', 'ReviewsController', ['only' => ['create', 'store', 'destroy']]);
+    Route::resource('reviews', 'ReviewsController', ['only' => ['store', 'destroy']]);
+    
+    //保存機能の操作
+    Route::group(['prefix' => 'places/{id}'], function(){
+        Route::post('save', 'SavePlaceController@store' )->name('save.store'); //保存
+        Route::delete('deleteSave', 'SavePlaceController@destroy')->name('save.destroy'); //保存削除
+        Route::get('savedPlaces', 'UsersController@savedPlaces')->name('saved');
+    });
+    
 });
 

@@ -29,8 +29,6 @@ class ReviewsController extends Controller
         //idを使ってreviewsテーブル内で該当するレビューを検索、データを取得
         $review = \App\Review::findOrFail($reviewId);
         
-        //dd($review);
-        
         //レビューを投稿したユーザのみ削除可能
         if(\Auth::id() === $review->user_id){
             $review->delete();

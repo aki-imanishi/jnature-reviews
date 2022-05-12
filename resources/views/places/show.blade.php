@@ -6,7 +6,9 @@
         
         <h3>観光地名</h3>
         
-        <a href="#" class="btn btn-warning">保存</a>
+        {{--保存ボタン--}}
+        @include('save_place.save_button')
+        <span class="badge badge-secondary">{{ $place->save_users_count }}人に保存されました</span>
         
         <div class="row">
             <img class="col-sm-3" src="{{ asset($place->image1) }}">
@@ -44,7 +46,10 @@
             </tbody>
         </table>
         
-        {!! link_to_route('places.index', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}
+        <!--観光地一覧の1ページ目に戻る-->
+        {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
+        <!--ブラウザバックのボタン-->
+        <button type="button" onClick="history.back()">戻る</button> 
     </section>
     
     <section>{{--レビューの表示--}}
@@ -56,7 +61,13 @@
         <div class="col-sm-8">
             <h5>レビューを投稿する</h5>
             {{--レビュー投稿フォーム--}}
-            @include('reviews.form')
+            {!! Form::open(['route' => 'reviews.store']) !!}
+                <div class="form-group">
+                    {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}
+                    <input type="hidden" name="place_id" value="{{ $place->id }}">
+                    {!! Form::submit('投稿', ['class' => 'btn btn-success btn-block']) !!}
+                </div>
+            {!! Form::close() !!}
         </div>
         
     </section>
