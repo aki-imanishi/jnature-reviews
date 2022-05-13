@@ -8,7 +8,7 @@
         
         {{--保存ボタン--}}
         @include('save_place.save_button')
-        <span class="badge badge-secondary">{{ $place->save_users_count }}人に保存されました</span>
+        <span class="badge badge-secondary">{{ $place->save_users_count }}人が保存しています</span>
         
         <div class="row">
             <img class="col-sm-3" src="{{ asset($place->image1) }}">
@@ -47,9 +47,9 @@
         </table>
         
         <!--観光地一覧の1ページ目に戻る-->
-        {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
+        {!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}
         <!--ブラウザバックのボタン-->
-        <button type="button" onClick="history.back()">戻る</button> 
+        <!--<button type="button" onClick="history.back()">戻る</button> -->
     </section>
     
     <section>{{--レビューの表示--}}

@@ -16,6 +16,7 @@ class UsersController extends Controller
         
         //ユーザのレビューの一覧を作成日時の降順で取得
         $reviews = $user->reviews()->orderBy('created_at', 'desc')->get();
+    
         
         // ユーザ詳細ビューでそれを表示
         return view('users.show', [

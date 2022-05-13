@@ -99,8 +99,8 @@ class User extends Authenticatable
     }
 
 
-    // //中間テーブルのレコード操作
-    // //ユーザが$placeIdで指定したplaceにレビューを投稿するとき（中間テーブルにレコード保存）
+    //レビュー投稿の中間テーブルのレコード操作
+    //ユーザが$placeIdで指定したplaceにレビューを投稿するとき（中間テーブルにレコード保存）
     // public function postReview($placeId, $content){
     //     $this->review_places()->attach($placeId, ['content' => $content]);
     // }
@@ -109,4 +109,6 @@ class User extends Authenticatable
     // public function deleteReview($placeId){
     //     $this->review_places()->detach($placeId);
     // }
+    
+    //contentの保存方法
 }

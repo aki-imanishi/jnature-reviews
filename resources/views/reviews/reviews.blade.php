@@ -18,7 +18,8 @@
                         {{-- レビューを投稿したユーザのみ、そのレビューに削除ボタンが出る --}}
                         @if(Auth::id() == $review->user_id)
                             {{-- 投稿削除 --}}
-                            {!! Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) !!}
+                            {!! Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) !!} 
+                            <!--$review->idを$review->place_idにする-->
                                 {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
