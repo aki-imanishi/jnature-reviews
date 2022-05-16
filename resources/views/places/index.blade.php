@@ -9,7 +9,10 @@
                     </div>
                     <div>
                         {{-- 観光地の詳細ページへのリンク --}}
-                        <p>{!! link_to_route('places.show', '詳細を見る', ['place' => $place->id]) !!}</p>
+                        {{--<p>{!! link_to_route('places.show', '詳細を見る', ['place' => $place->id]) !!}</p>--}}
+                        <p>
+                            <a href="/places/{{ $place->id }}">詳細を見る</a>
+                        </p>
                     </div>
                 </div>
             </li>

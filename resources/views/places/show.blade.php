@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <section>{{--観光地詳細--}}
+    {{--観光地詳細--}}
+    <section>
         
         <h3>観光地名</h3>
         
@@ -47,27 +48,36 @@
         </table>
         
         <!--観光地一覧の1ページ目に戻る-->
-        {!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}
+        {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
+        <a href="/" class="btn btn-primary">一覧に戻る</a>
         <!--ブラウザバックのボタン-->
         <!--<button type="button" onClick="history.back()">戻る</button> -->
     </section>
     
-    <section>{{--レビューの表示--}}
+    {{--レビューの表示--}}
+    <section>
         <div>
             <h5>みんなのレビュー</h5>
             {{--レビュー一覧--}}
             @include('reviews.reviews')
         </div>
         <div class="col-sm-8">
-            <h5>レビューを投稿する</h5>
             {{--レビュー投稿フォーム--}}
-            {!! Form::open(['route' => 'reviews.store']) !!}
+            {{--{!! Form::open(['route' => 'reviews.store']) !!}--}}
+                <!--<div class="form-group">-->
+                    {{--{!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}--}}
+                    {{--{!! Form::submit('投稿', ['class' => 'btn btn-success btn-block']) !!}--}}
+                <!--</div>-->
+            {{--{!! Form::close() !!}--}}
+            <form action="/reviews" method="post">
+                @csrf
                 <div class="form-group">
-                    {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}
+                    <label for="content">レビューを投稿する</label>
+                    <textarea name="content" class="form-control" rows="2"></textarea>
                     <input type="hidden" name="place_id" value="{{ $place->id }}">
-                    {!! Form::submit('投稿', ['class' => 'btn btn-success btn-block']) !!}
+                    <input type="submit" value="投稿" class="btn btn-success btn-block">
                 </div>
-            {!! Form::close() !!}
+            </form>
         </div>
         
     </section>

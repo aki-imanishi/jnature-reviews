@@ -19,11 +19,6 @@ class ReviewsController extends Controller
             'place_id' => $request->place_id, //place_idの保存（中間テーブルのattachの役割）
         ]);
         
-        //attachを使用する場合
-        // $placeId = $request->place_id;
-        // $content = $request->content;
-        // \Auth::user()->postReview($placeId, $content);
-        
         
         // 前のURLへリダイレクトさせる
         return back();
@@ -31,17 +26,14 @@ class ReviewsController extends Controller
     
     //レビューの削除（マイページ、観光地の詳細ページ）
     public function destroy($reviewId){
+        
         //idを使ってreviewsテーブル内で該当するレビューを検索、データを取得
         $review = \App\Review::findOrFail($reviewId);
         
         //レビューを投稿したユーザのみ削除可能
         if(\Auth::id() === $review->user_id){
             $review->delete();
-            
-            //detachを使用する場合
-            // $placeId = $review->place_id;
-            // \Auth::user->deleteReview($placeId)//$placeIdに置き換える
-            
+           
         }
         
         // 前のURLへリダイレクトさせる

@@ -10,9 +10,11 @@
                 <div class="text-center">
                     <h1>J-Nature Reviewsへようこそ！</h1>
                     {{-- ユーザ登録ページへのリンク --}}
-                    {!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                    {{--{!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}--}}
+                    <a href="signup" class="btn btn-lg btn-primary">会員登録</a>
                     {{--ログインページへのリンク--}}
-                    {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                    {{--{!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}--}}
+                    <a href="login" class="btn btn-lg btn-primary">ログイン</a>
                 </div>
             </div>
         @endif
