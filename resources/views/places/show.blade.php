@@ -54,7 +54,7 @@
             <a href="/" class="btn btn-primary">一覧に戻る</a>
             
             <!--観光地の登録ページ-->
-            <a href="placeRegister" class="btn btn-warning">観光地の登録</a>
+            <a href="/placeRegister" class="btn btn-warning">観光地の登録</a>
             
             <br><br>
         </div>
