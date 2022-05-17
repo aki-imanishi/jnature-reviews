@@ -18,9 +18,9 @@ class PlacesTableSeeder extends Seeder
                 'access' => 'test' . $i,
                 'homepage' => 'test' . $i,
                 'content' => 'test' . $i,
-                'image1' => 'images/places/IMG_nezu1.JPG',
-                'image2' => 'images/places/IMG_nezu2.JPG',
-                'image3' => 'images/places/IMG_nezu3.JPG',
+                'image1' => 'ayyeX6nUZwP97K7THsRLdAQkO9X1srzT6IWKrcOU.jpg',
+                'image2' => '8KS8oWNKXHKKtLVbWSrRNtWgYZRlg46DaFsb3bVG.jpg',
+                'image3' => 'bjqipCQhoolwpt87PN3dsGkz9qDwTVmpiKJRyV3F.jpg',
                 'information' => 'test' . $i,
             ]);
         }

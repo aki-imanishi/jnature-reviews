@@ -10,23 +10,23 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">観光地名</label>
-                    <input type="" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="address">住所</label>
-                    <input type="" name="address" class="form-control">
+                    <input type="text" name="address" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="access">アクセス</label>
-                    <input type="" name="access" class="form-control">
+                    <input type="text" name="access" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="homepage">ホームページ</label>
-                    <input type="" name="homepage" class="form-control">
+                    <input type="text" name="homepage" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="content">詳細情報</label>
-                    <input type="" name="content" class="form-control">
+                    <input type="text" name="content" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="file_path1">画像１枚目</label>
@@ -47,6 +47,7 @@
                 
                <input type="submit" value="登録" class="btn btn-primary btn-block">
             </form>
+            
         </div>
     </div>
     

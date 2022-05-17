@@ -5,18 +5,18 @@
     {{--観光地詳細--}}
     <section>
         
-        <h3>観光地名</h3>
+        <h3>{{ $place->name }}</h3>
         
         {{--保存ボタン--}}
         @include('save_place.save_button')
         <span class="badge badge-secondary">{{ $place->save_users_count }}人が保存しています</span>
+        <br><br>
         
         <div class="row">
-            <img class="col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}">
-            <img class="offset-sm-1 col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image2)) }}">
-            <img class="offset-sm-1 col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image3)) }}">
+            <img class="col-sm-4" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}" width="200" height="350">
+            <img class="col-sm-4" src="{{ asset(\Storage::url('place_image/' . $place->image2)) }}" width="200" height="350">
+            <img class="col-sm-4" src="{{ asset(\Storage::url('place_image/' . $place->image3)) }}" width="200" height="350">
         </div>
-        {{--Storage::url('image/' . $place->image1)--}}
         
         <div>
             <p></p>
@@ -48,17 +48,19 @@
             </tbody>
         </table>
         
-        <!--観光地一覧の1ページ目に戻る-->
-        {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
-        <a href="/" class="btn btn-primary">一覧に戻る</a>
-        
         <div>
-            <a href="/placeRegister" class="btn btn-warning">他の観光地を追加</a>
+            <!--観光地一覧の1ページ目に戻る-->
+            {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
+            <a href="/" class="btn btn-primary">一覧に戻る</a>
+            
+            <!--観光地の登録ページ-->
+            <a href="placeRegister" class="btn btn-warning">観光地の登録</a>
+            
+            <br><br>
         </div>
         
         <!--ブラウザバックのボタン-->
         <!--<button type="button" onClick="history.back()">戻る</button> -->
-        
     </section>
     
     {{--レビューの表示--}}
@@ -70,12 +72,6 @@
         </div>
         <div class="col-sm-8">
             {{--レビュー投稿フォーム--}}
-            {{--{!! Form::open(['route' => 'reviews.store']) !!}--}}
-                <!--<div class="form-group">-->
-                    {{--{!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}--}}
-                    {{--{!! Form::submit('投稿', ['class' => 'btn btn-success btn-block']) !!}--}}
-                <!--</div>-->
-            {{--{!! Form::close() !!}--}}
             <form action="/reviews" method="post">
                 @csrf
                 <div class="form-group">
@@ -85,6 +81,12 @@
                     <input type="submit" value="投稿" class="btn btn-success btn-block">
                 </div>
             </form>
+            {{--{!! Form::open(['route' => 'reviews.store']) !!}--}}
+                <!--<div class="form-group">-->
+                    {{--{!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}--}}
+                    {{--{!! Form::submit('投稿', ['class' => 'btn btn-success btn-block']) !!}--}}
+                <!--</div>-->
+            {{--{!! Form::close() !!}--}}
         </div>
         
     </section>
