@@ -51,7 +51,7 @@
         <div>
             <!--観光地一覧の1ページ目に戻る-->
             {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
-            <a href="/" class="btn btn-primary">一覧に戻る</a>
+            <a href="/p/2" class="btn btn-primary">一覧に戻る</a>
             
             <!--観光地の登録ページ-->
             <a href="placeRegister" class="btn btn-warning">観光地の登録</a>

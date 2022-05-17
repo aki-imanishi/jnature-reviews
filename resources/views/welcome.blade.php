@@ -4,7 +4,9 @@
     
         @if(Auth::check()) {{--ログイン中--}}
             <h5>観光地一覧</h5>
-                @include('places.index')
+            <a href="placeRegister" class="btn btn-warning">観光地の登録</a>
+            <br><br>
+            @include('places.index')
         @else
             <div class="center jumbotron">    
                 <div class="text-center">
