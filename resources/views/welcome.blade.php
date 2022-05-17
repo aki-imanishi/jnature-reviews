@@ -4,6 +4,9 @@
     
         @if(Auth::check()) {{--ログイン中--}}
             <h5>観光地一覧</h5>
+            <div>
+                <a href="/placeRegister" class="btn btn-warning">新しい観光地を追加</a>
+            </div>
                 @include('places.index')
         @else
             <div class="center jumbotron">    

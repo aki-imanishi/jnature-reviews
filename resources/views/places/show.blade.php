@@ -12,10 +12,11 @@
         <span class="badge badge-secondary">{{ $place->save_users_count }}人が保存しています</span>
         
         <div class="row">
-            <img class="col-sm-3" src="{{ asset($place->image1) }}">
-            <img class="offset-sm-1 col-sm-3" src="{{ asset($place->image2) }}">
-            <img class="offset-sm-1 col-sm-3" src="{{ asset($place->image3) }}">
+            <img class="col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}">
+            <img class="offset-sm-1 col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image2)) }}">
+            <img class="offset-sm-1 col-sm-3" src="{{ asset(\Storage::url('place_image/' . $place->image3)) }}">
         </div>
+        {{--Storage::url('image/' . $place->image1)--}}
         
         <div>
             <p></p>
@@ -50,8 +51,14 @@
         <!--観光地一覧の1ページ目に戻る-->
         {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
         <a href="/" class="btn btn-primary">一覧に戻る</a>
+        
+        <div>
+            <a href="/placeRegister" class="btn btn-warning">他の観光地を追加</a>
+        </div>
+        
         <!--ブラウザバックのボタン-->
         <!--<button type="button" onClick="history.back()">戻る</button> -->
+        
     </section>
     
     {{--レビューの表示--}}

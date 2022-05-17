@@ -2,7 +2,7 @@
     <ul class="list-unstyled">
         @foreach($places as $place)
             <li class="media">
-                <img class="col-sm-2" src="{{ asset($place->image1) }}" alt="">
+                <img class="col-sm-2" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}" alt="">
                 <div class="media-body">
                     <div>
                         {{ $place->name }}

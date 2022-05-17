@@ -11,6 +11,8 @@ class ReviewsController extends Controller
         // バリデーション
         $request->validate([
             'content' => 'required|max:255',
+        ], [
+            'content.required' => 'レビューを入力してください',
         ]);
         
         //投稿したユーザのレビューとしてcreate()で作成、保存

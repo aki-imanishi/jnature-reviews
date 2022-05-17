@@ -44,5 +44,7 @@ Route::group(['middleware' => ['auth']], function(){ //ログインしている�
         Route::get('savedPlaces', 'UsersController@savedPlaces'); //行きたい観光地一覧の表示
     });
     
+    Route::get('placeRegister', 'PlaceRegisterController@show'); //観光地の登録画面
+    Route::post('placeRegister', 'PlaceRegisterController@store'); //観光地の登録
 });
 

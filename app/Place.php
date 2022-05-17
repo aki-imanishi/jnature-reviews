@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     //ユーザが画像を登録する場合に必要
-    // protected $fillable = [
-    //     'name', 'address', 'access', 'homepage', 'content', 'image1', 'image2', 'image3', 'information'
-    // ];
+    protected $fillable = [
+        'name', 'address', 'access', 'homepage', 'content', 'image1', 'image2', 'image3', 'information'
+    ];
     
     //Reviewモデルとの関係(一対多)
     public function reviews(){
