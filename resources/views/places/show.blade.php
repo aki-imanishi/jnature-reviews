@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th class="text-center col-sm-3">ホームページ</th>
-                    <td><a href="{{ $place->homepage }}">{{ $place->homepage }}</a></td>
+                    <td><a href="{{ $place->homepage }}" target="_blank" rel="noopener noreferrer">{{ $place->homepage }}</a></td>
                 </tr>
                 <tr>
                     <th class="text-center col-sm-3">詳細情報</th>

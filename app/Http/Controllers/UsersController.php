@@ -7,7 +7,8 @@ use App\User; //Userモデルを宣言する必要がある
 
 class UsersController extends Controller
 {
-    public function show($id){ //ユーザ詳細
+    //ユーザ詳細(マイページの表示)
+    public function show($id){ 
         //ユーザが登録されているか検索、ユーザのデータを取得
         $user = User::findOrFail($id); //Userモデルでidを検索する
         
@@ -24,6 +25,7 @@ class UsersController extends Controller
             'reviews' => $reviews,
         ]);
     }
+    
     
     //行きたい観光地の一覧
     public function savedPlaces($id){

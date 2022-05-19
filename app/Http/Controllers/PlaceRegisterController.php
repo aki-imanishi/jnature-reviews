@@ -31,7 +31,10 @@ class PlaceRegisterController extends Controller
             'address.required' => '住所を入力してください',
             'access.required' => 'アクセスを入力してください',
             'homepage.required' => 'ホームページを入力してください',
-            'content.required' => '観光地詳細を入力してください',
+            'content.required' => '詳細情報を入力してください',
+            'file_path1.required' => '画像１を選択してください',
+            'file_path2.required' => '画像２を選択してください',
+            'file_path3.required' => '画像３を選択してください',
             'information.required' => '概要を入力してください',
         ]);
         

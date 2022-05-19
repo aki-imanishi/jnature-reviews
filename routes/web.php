@@ -28,6 +28,13 @@ Route::group(['middleware' => ['auth']], function(){ //ログインしている�
     // Route::resource('users', 'UsersController', ['only' => ['show']]); 
     Route::get('users/{user}', 'UsersController@show'); //画面遷移（画面表示）のみなのでGETでok
     
+    //登録内容の変更
+    Route::get('usersEdit/{user}', 'UpdateInfoController@edit'); //登録内容変更の選択画面を表示
+    Route::get('usersInfoEdit/{user}', 'UpdateInfoController@editInfo'); //名前、メールアドレスの変更画面を表示
+    Route::get('usersPassEdit/{user}', 'UpdateInfoController@editPassword'); //パスワードの変更画面を表示
+    Route::post('usersInfoUpdate', 'UpdateInfoController@updateInfo'); //名前、メールアドレスを更新
+    Route::post('usersPassUpdate', 'UpdateInfoController@updatePassword'); //パスワードを更新
+    
     //観光地一覧の表示、観光地詳細ページ
     // Route::resource('places', 'PlacesController', ['only' => ['show']]);
     Route::get('places/{place}', 'PlacesController@show'); //画面遷移（画面表示）のみなのでGETでok
