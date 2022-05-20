@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    protected $fillable = ['content', 'place_id'];
+    protected $fillable = ['rate', 'content', 'place_id'];
     
     //レビューを投稿するユーザ(Userモデルとの関係、一対多)
     public function user(){

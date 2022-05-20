@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @if(session('warning'))
         <div class="alert alert-danger">
             {{ session('warning') }}
@@ -32,6 +33,7 @@
                 <input type="hidden" name="userId" value="{{ $user->id }}">
                 <input type="submit" value="変更" class="btn btn-success">
             </form>
+            
             <a href="/usersEdit/{{ $user->id }}" class="btn btn-primary">戻る</a>
         </div>
     </div>

@@ -89,17 +89,21 @@ class UpdateInfoController extends Controller
             'new_password_confirmation.same' => '新しいパスワードとパスワード確認が一致しません'
         ]);
         
+        // フラッシュメッセージ
+        $msg = "ふらっしゅ";
+        session()->flash("warningとかerrorとかのバリデーションが予約している以外の言葉", $msg);
+        
         //更新
         $user = User::findOrFail($request->userId);
         
-        if(password_verify($request->current_password, $user->password)){
+        if(!password_verify($request->current_password, $user->password)){
+            return back()->with('warning', '現在のパスワードが間違っています');
+        } else {
             $user->password = Hash::make($request->new_password);
             $user->save();
             
             //更新画面に戻る
             return back()->with('status', 'パスワードが更新されました');
-        } else {
-            return back()->with('warning', '現在のパスワードが間違っています');
         }
         
     }

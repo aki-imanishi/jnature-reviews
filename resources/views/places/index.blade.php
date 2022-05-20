@@ -2,18 +2,15 @@
     <ul class="list-unstyled">
         @foreach($places as $place)
             <li class="media">
-                <img class="col-sm-2" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}" width="100" height="150">
+                <img class="col-sm-2" src="{{ asset(\Storage::url('place_image/' . $place->image1)) }}" width="100px" height="150px">
                 <div class="media-body">
                     <div>
-                        {{ $place->name }}
+                        <h5><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h5>
                     </div>
                     <div>
-                        {{-- 観光地の詳細ページへのリンク --}}
-                        <p>
-                            <a href="/places/{{ $place->id }}">詳細を見る</a>
-                            {{--{!! link_to_route('places.show', '詳細を見る', ['place' => $place->id]) !!}--}}
-                        </p>
+                       <p>{{ $place->information }}</p> 
                     </div>
+                    
                 </div>
             </li>
             <br>

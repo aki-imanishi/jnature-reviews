@@ -51,16 +51,13 @@
         <div>
             <!--観光地一覧の1ページ目に戻る-->
             {{--{!! link_to_route('toppage', '一覧に戻る', [], ['class' => 'btn btn-primary']) !!}--}}
-            <a href="/" class="btn btn-primary">一覧に戻る</a>
+            <a href="{{ $previousUrl }}" class="btn btn-primary">一覧に戻る</a>
             
             <!--観光地の登録ページ-->
             <a href="/placeRegister" class="btn btn-warning">観光地の登録</a>
-            
             <br><br>
         </div>
         
-        <!--ブラウザバックのボタン-->
-        <!--<button type="button" onClick="history.back()">戻る</button> -->
     </section>
     
     {{--レビューの表示--}}
@@ -71,12 +68,27 @@
             @include('reviews.reviews')
         </div>
         <div class="col-sm-8">
+            <h5>レビューを投稿する</h5>
+            
             {{--レビュー投稿フォーム--}}
             <form action="/reviews" method="post">
                 @csrf
+                <div class="rate-form">
+                    <input id="star5" type="radio" name="rate" value="5">
+                    <label for="star5">★</label>
+                    <input id="star4" type="radio" name="rate" value="4">
+                    <label for="star4">★</label>
+                    <input id="star3" type="radio" name="rate" value="3">
+                    <label for="star3">★</label>
+                    <input id="star2" type="radio" name="rate" value="2">
+                    <label for="star2">★</label>
+                    <input id="star1" type="radio" name="rate" value="1">
+                    <label for="star1">★</label> 
+                </div>
+                
                 <div class="form-group">
-                    <label for="content">レビューを投稿する</label>
-                    <textarea name="content" class="form-control" rows="2"></textarea>
+                    <label for="content">レビュー</label>
+                    <textarea name="content" class="form-control" rows="2">{{ old('content') }}</textarea>
                     <input type="hidden" name="place_id" value="{{ $place->id }}">
                     <input type="submit" value="投稿" class="btn btn-success btn-block">
                 </div>

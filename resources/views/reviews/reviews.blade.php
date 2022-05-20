@@ -13,6 +13,25 @@
                         <span class="text-muted">posted at {{ $review->created_at }}</span>
                     </div>
                     <div>
+                        @switch($review->rate)
+                            @case(1)
+                                ★☆☆☆☆
+                                @break
+                            @case(2)
+                                ★★☆☆☆
+                                @break
+                            @case(3)
+                                ★★★☆☆
+                                @break
+                            @case(4)
+                                ★★★★☆
+                                @break
+                            @case(5)
+                                ★★★★★
+                                @break
+                        @endswitch
+                    </div>
+                    <div>
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($review->content)) !!}</p>
                     </div>
@@ -36,5 +55,7 @@
         @endforeach
     </ul>
     
+    {{-- ページネーションのリンク --}}
+    {{ $reviews->links() }}
     
 @endif

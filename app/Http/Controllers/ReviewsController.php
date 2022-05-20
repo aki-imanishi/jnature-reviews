@@ -10,13 +10,16 @@ class ReviewsController extends Controller
     public function store(Request $request){
         // バリデーション
         $request->validate([
+            'rate' => 'required',
             'content' => 'required|max:255',
         ], [
+            'rate.required' => '星5段階評価を入力してください',
             'content.required' => 'レビューを入力してください',
         ]);
         
         //投稿したユーザのレビューとしてcreate()で作成、保存
         $request->user()->reviews()->create([
+            'rate' => intval($request->rate),
             'content' => $request->content,
             'place_id' => $request->place_id, //place_idの保存（中間テーブルのattachの役割）
         ]);

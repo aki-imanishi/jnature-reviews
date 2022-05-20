@@ -16,7 +16,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         
         //ユーザのレビューの一覧を作成日時の降順で取得
-        $reviews = $user->reviews()->orderBy('created_at', 'desc')->get();
+        $reviews = $user->reviews()->orderBy('created_at', 'desc')->paginate(5);
     
         
         // ユーザ詳細ビューでそれを表示
@@ -37,7 +37,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         
         //ユーザが保存した観光地の一覧を取得
-        $save_places = $user->save_places()->paginate(10);
+        $save_places = $user->save_places()->orderBy('id', 'desc')->paginate(7);
         
         //行きたい観光地の一覧のviewで表示
         return view('users.save_places', [

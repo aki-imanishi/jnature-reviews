@@ -26,7 +26,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function(){ //ログインしているユーザのみ閲覧可能
     //ユーザ詳細を表示
     // Route::resource('users', 'UsersController', ['only' => ['show']]); 
-    Route::get('users/{user}', 'UsersController@show'); //画面遷移（画面表示）のみなのでGETでok
+    Route::get('users/{user}', 'UsersController@show'); //マイページへ画面遷移（画面表示）のみなのでGETでok
     
     //登録内容の変更
     Route::get('usersEdit/{user}', 'UpdateInfoController@edit'); //登録内容変更の選択画面を表示
@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function(){ //ログインしている�
     
     //観光地一覧の表示、観光地詳細ページ
     // Route::resource('places', 'PlacesController', ['only' => ['show']]);
-    Route::get('places/{place}', 'PlacesController@show'); //画面遷移（画面表示）のみなのでGETでok
+    Route::get('places/{place}', 'PlacesController@show'); //観光地詳細ページへ画面遷移（画面表示）のみなのでGETでok
     
     //レビュー投稿の操作
     // Route::resource('reviews', 'ReviewsController', ['only' => ['store', 'destroy']]);
